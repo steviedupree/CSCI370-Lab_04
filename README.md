@@ -106,10 +106,10 @@ This lab will build upon your AsyncTask knowledge.
 * Create a **StudentDao** class that contains a private ArrayList of Students attribute. Make a Constructor that takes in no parameters and builds 5 Students and put them in the ArrayList. Create a method **getAllStudents()** that will return the ArrayList of Students attribute. Wrap this code inside this code block **This will be your long running process**.
 ```
  try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+     Thread.sleep(5000);
+ } catch (InterruptedException e) {
+     e.printStackTrace();
+ }
 ```
 * Create a **StudentAsyncTask** class that extends **AsyncTask** and has the parameters <Void,Void,ArrayList<Student>> .
 * Since this class will update the UI thread as well as executing the background thread, you will need to pass in the View piece you want to populate and pass in the Context. These should be private attributes as well as passed into the Constructor.
