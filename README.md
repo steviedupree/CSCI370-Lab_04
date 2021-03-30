@@ -103,7 +103,7 @@ This lab will build upon your AsyncTask knowledge.
 * Create a Java reference to the ListView in **MainActivity.java**.
 * Use the **Student.java** class provided or create a **Student** class in Java (a POJO- Plain Ole Java Object) with three Strings as private member variables (firstName, lastName, and major). Remember, POJO are only constructors, getters, and setters.
 * Use the **StudentAdapter.java** class provided to create a **StudentAdapter** class.
-* Create a **StudentDao** class that contains a private ArrayList of Students attribute. Make a Constructor that takes in no parameters and builds 5 Students and put them in the ArrayList. Create a method **getAllStudents()** that will return the ArrayList of Students attribute. Wrap this code inside this code block **This will be your long running process**.
+* Create a **StudentDao** class that contains a private ArrayList of Students attribute. Make a Constructor that takes in no parameters and builds 5 Students and put them in the ArrayList. Create a method **getAllStudents()** that will return the ArrayList of Students attribute. Execute this code before returning the Student ArrayList **This will be your long running process**.
 ```
  try {
      Thread.sleep(5000);
