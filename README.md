@@ -102,31 +102,21 @@ This lab will build upon your AsyncTask knowledge.
 * Modifying the thumbnail to be an ImageView will be the **Challenge**. Get the version with TextView workking first. You can use [icons8.com](https://icons8.com/) for icons. I think 96 by 96 is a good size to get.
 * Create a Java reference to the ListView in **MainActivity.java**.
 * Use the **Student.java** class provided or create a **Student** class in Java (a POJO- Plain Ole Java Object) with three Strings as private member variables (firstName, lastName, and major). Remember, POJO are only constructors, getters, and setters.
-* Create a **StudentDao** class that contains a private ArrayList of Students attribute. Make a Constructor that takes in no parameters and builds 5 Students and put them in the ArrayList. Create a method **getAllStudents()** that will return the ArrayList of Students attribute. **This will be your long running process**
-* Create a **StudentAsyncTask** class that extends **AsyncTask** and has the parameters <Void,Void,ArrayList<Student>> 
+* Use the **StudentAdapter.java** class provided to create a **StudentAdapter** class.
+* Create a **StudentDao** class that contains a private ArrayList of Students attribute. Make a Constructor that takes in no parameters and builds 5 Students and put them in the ArrayList. Create a method **getAllStudents()** that will return the ArrayList of Students attribute. Wrap this code inside this code block **This will be your long running process**.
+```
+ try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+```
+* Create a **StudentAsyncTask** class that extends **AsyncTask** and has the parameters <Void,Void,ArrayList<Student>> .
 * Since this class will update the UI thread as well as executing the background thread, you will need to pass in the View piece you want to populate and pass in the Context. These should be private attributes as well as passed into the Constructor.
-* Let the IDE Override **doInBackground** and **onPostExecute**
-* In MainActivity.java, create 5 Students and put them into an ArrayList. Make sure to give the Students a firstName, lastName, and major.
-* Create a StudentAdapter class that extends BaseAdapter and takes in a Context Object and an ArrayList in the constructor.
-* In StudentAdapter.java, create the following private member variables:
-```
-    private Context mContext;
-    private LayoutInflater mInflator;
-    private ArrayList<Student> mDataSource;
-```
-* In the constructor, set mContext and mDataSource to the arguments that are passed in.
-* In the constructor, set mInflator as follows:
-```
-mInflator = (LayoutInflater) mContext.getSystemService((Context.LAYOUT_INFLATER_SERVICE));
-```
-* Override the required methods that enforced by BaseAdapter.
-* return the proper values as discussed in class for **getCount(), getItem(), and getItemId()**.
-* The first line in **getView()** should be:
-```
- View rowView = mInflator.inflate(R.layout.list_view_row, parent, false);
-```
-* Under that line, code the mapping, the basic steps are create a reference to the View items in layout file, create a Student reference by calling getItem(), set necessary fields in View items with data from Student.
-* In MainActivity.java, have your ListView object set an adapter with the StudentAdapter you created in the last step.
+* Let the IDE Override **doInBackground** and **onPostExecute**.
+* The **doInBackground** method should instantiate a **StudentDao** and call **getAllStudents** and return this ArrayList.
+* The **onPostExecute** should create a **StudentAdapter** and set the adapter to the ListView.
+* In MainActivity.java, create an instance of a StudentAsyncTask and perform the execute() method on it.
 * Run your application and test.
 
 
