@@ -101,7 +101,11 @@ This lab will build upon your AsyncTask knowledge.
 ```
 * Modifying the thumbnail to be an ImageView will be the **Challenge**. Get the version with TextView workking first. You can use [icons8.com](https://icons8.com/) for icons. I think 96 by 96 is a good size to get.
 * Create a Java reference to the ListView in **MainActivity.java**.
-* Create a **Student** class in Java (a POJO- Plain Ole Java Object) with three Strings as private member variables (firstName, lastName, and major). Remember, POJO are only constructors, getters, and setters.
+* Use the **Student.java** class provided or create a **Student** class in Java (a POJO- Plain Ole Java Object) with three Strings as private member variables (firstName, lastName, and major). Remember, POJO are only constructors, getters, and setters.
+* Create a **StudentDao** class that contains a private ArrayList of Students attribute. Make a Constructor that takes in no parameters and builds 5 Students and put them in the ArrayList. Create a method **getAllStudents()** that will return the ArrayList of Students attribute. **This will be your long running process**
+* Create a **StudentAsyncTask** class that extends **AsyncTask** and has the parameters <Void,Void,ArrayList<Student>> 
+* Since this class will update the UI thread as well as executing the background thread, you will need to pass in the View piece you want to populate and pass in the Context. These should be private attributes as well as passed into the Constructor.
+* Let the IDE Override **doInBackground** and **onPostExecute**
 * In MainActivity.java, create 5 Students and put them into an ArrayList. Make sure to give the Students a firstName, lastName, and major.
 * Create a StudentAdapter class that extends BaseAdapter and takes in a Context Object and an ArrayList in the constructor.
 * In StudentAdapter.java, create the following private member variables:
