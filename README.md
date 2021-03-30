@@ -111,7 +111,7 @@ This lab will build upon your AsyncTask knowledge.
      e.printStackTrace();
  }
 ```
-* Create a **StudentAsyncTask** class that extends **AsyncTask** and has the parameters <Void,Void,ArrayList<Student>> .
+* Create a **StudentAsyncTask** class that extends **AsyncTask** and has the parameters <Void,Void,ArrayList\<Student\>\> .
 * Since this class will update the UI thread as well as executing the background thread, you will need to pass in the View piece you want to populate and pass in the Context. These should be private attributes as well as passed into the Constructor.
 * Let the IDE Override **doInBackground** and **onPostExecute**.
 * The **doInBackground** method should instantiate a **StudentDao** and call **getAllStudents** and return this ArrayList.
